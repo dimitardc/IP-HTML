@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+    <style>
+        #grid{
+            width: 500px;
+            clear: both;
+            float: left;
+        }
+        .start{
+            background: linear-gradient(#1E5799, #7db9e8);
+            width: 80px;
+            height: 80px;
+            padding: 10px;
+            margin: 10px;
+            float: left;
+            text-align: center;
+        }
+        #grid span{
+            display: none;
+        }
+        .clicked{
+            background: gray;
+            color: white;
+            width: 80px;
+            height: 80px;
+            padding: 10px;
+            margin: 10px;
+            float: left;
+            text-align: center;
+        }
+        .hover{
+            background: linear-gradient(rgb(33, 143, 12), #3aca46);
+            color: lightblue;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            var flag = 0;
+            $("#grid div").hover(function(){
+                $(this).addClass("hover");
+            },function(){
+                $(this).removeClass("hover");
+            });
+            
+            
+            $("#grid div").click(function(){
+                var name = $(this).attr("name");
+                var id = $(this).attr("id");
+                var tempo = $(this).attr("name");
+                if(flag == 0){
+                    $("#"+id).removeClass("start");
+                    $("#"+id).addClass("clicked");
+                    $(this).find("span").show();
+                    $(this).find("h2").hide();
+                    flag = 1;
+                }
+                else{
+                    $("#"+id).removeClass("clicked");
+                    $("#"+id).addClass("start");
+                    $(this).find("span").hide();
+                    $(this).find("h2").show();
+                    flag = 0;
+                }
+                
+              //func(id, name);
+
+            });
+        });
+
+        
+        /*
+        var holder = 1;
+        var holderTwo = 0;
+
+        var pointCount = 0;
+
+        function func(id, name){                            prakaj samo name i sporeduvam name so predhoden name, ne treba da prakjash id
+            if(holder == 1){
+                var nameTemp = name;
+                holder = 0;
+                
+            }
+            if(holderTwo == 1){
+                idTemp = id;
+                holderTwo = 0;
+                holder = 1;
+                console.log("TEST");
+                if(idTemp == nameTemp){
+                    pointCount++;
+                    document.getElementById("points").innerHTML = pointCount;
+                }
+            }
+            if(holderTwo == 0)
+                holderTwo = 1;
+        }
+        */  
+
+    </script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="grid">
+        <div name="apples" class="start" id="1">
+            <span>Apples</span>
+            <h2>1</h2>
+        </div>
+        <div name="kiwis" class="start" id="2">
+            <span>Kiwi</span>
+            <h2>2</h2>
+        </div>
+        <div name="bananas" class="start" id="3">
+            <span>Bananas</span>
+            <h2>3</h2>
+        </div>
+        <div name="bananas"  class="start" id="4">
+            <span>Bananas</span>
+            <h2>4</h2>
+        </div>
+        <div name="oranges" class="start" id="5">
+            <span>Oranges</span>
+            <h2>5</h2>
+        </div>
+        <div name="apples" class="start" id="6">
+            <span>Apples</span>
+            <h2>6</h2>
+        </div>
+        <div name="peaches" class="start" id="7">
+            <span>Peaches</span>
+            <h2>7</h2>
+        </div>
+        <div name="oranges" class="start" id="8">
+            <span>Oranges</span>
+            <h2>8</h2>
+        </div>
+        <div name="grapes" class="start" id="9">
+            <span>Grapes</span>
+            <h2>9</h2>
+        </div>
+        <div name="mangos" class="start" id="10">
+            <span>Mangos</span>
+            <h2>10</h2>
+        </div>
+        <div name="melons" class="start" id="11">
+            <span>Melons</span>
+            <h2>11</h2>
+        </div>
+        <div name="mangos" class="start" id="12">
+            <span>Mangos</span>
+            <h2>12</h2>
+        </div>
+        <div name="grapes" class="start" id="13">
+            <span>Grapes</span>
+            <h2>13</h2>
+        </div>
+        <div name="peaches" class="start" id="14">
+            <span>Peaches</span>
+            <h2>14</h2>
+        </div>
+        <div name="melons" class="start" id="15">
+            <span>Melons</span>
+            <h2>15</h2>
+        </div>
+        <div name="kiwis" class="start" id="16">
+            <span>Kiwis</span>
+            <h2>16</h2>
+        </div>
+    </div>
+
+    <div>
+        <h1>Points: <span id="points">0</span></h1>
+    </div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+ <script>
+     $(document).ready(function(){
+        var tries = 0;
+        var a  = Math.round(Math.random()*9000 + 1000);
+        $("#pogodi").click(function(){
+            var Poz1 = Math.floor(a/1000);
+            var Poz2 = Math.floor((a/100)%10);
+            var Poz3 = Math.floor((a/10)%10);
+            var Poz4 = Math.floor(a%10);
+            console.log(a);
+            tries++;
+            counter = 0;
+            counter2 = 0;
+            $("#obid").html("Tries "+tries)
+            var b = $("#guess").val();
+            for(var i = 0;i<4;i++)
+                if(b[i] == Poz1 || b[i] == Poz2 || b[i]==Poz3 || b[i] == Poz4)
+                    counter++
+            if(Poz1 == b[0])
+                counter2++;
+            if(Poz2 == b[1])
+                counter2++;
+            if(Poz3 == b[2])
+                counter2++;
+            if(Poz4 == b[3])
+                counter2++;
+            $("#prikaz").append("Ima " + counter + ", na mesto " + counter2 + "<br>");
+            if(counter2 == 4)
+                $("#prikaz").append("POGODOK");
+            if(tries == 10)
+                $("#prikaz").append("Ne uspeavte da pogodite od 10 obidi. Brojot e" + a)
+        });
+        $("#reset").click(function(){
+            a  = Math.round(Math.random()*9000 + 1000);
+            console.log(a);
+            tries = 0;
+            $("#obid").html(tries);
+            $("#prikaz").empty();
+        })
+     });
+ </script>
+ </head>
+ <body>
+    <div >
+        <div style="text-align:right; float:left">
+            <label id="obid">Обиди 0</label>
+            <p>Погодок: <input id="guess" style="width:150px"/></p>
+            <button id="pogodi">Погоди</button>
+            <button id="reset">Од почеток</button>
+        </div>
+    </div>
+    <br/>
+    <div id="prikaz" style="clear: both">
+    </div>
+ </body>
+</html>

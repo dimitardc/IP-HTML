@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var broj = prompt("vnesi telefonski broj");
+        broj = parseInt(broj);
+        if(parseInt(broj/1000000) == 70 || parseInt(broj/1000000) == 71 || parseInt(broj/1000000) == 72){
+            document.write(parseInt(broj/1000000) +"/"+ parseInt((broj/1000)%1000) +"-"+ parseInt(broj%1000));
+            document.write("<br>");
+            document.write("T-mobile");
+        }
+        else if(parseInt(broj/1000000) == 75 || parseInt(broj/1000000) == 76){
+            document.write(parseInt(broj/1000000) +"/"+ parseInt((broj/1000)%1000) +"-"+ parseInt(broj%1000));
+            document.write("<br>");
+            document.write("One");
+        }
+        else{
+            document.write(parseInt(broj/1000000) +"/"+ parseInt((broj/1000)%1000) +"-"+ parseInt(broj%1000));
+            document.write("<br>");
+            document.write("Vip");
+        }
+    </script>
+</body>
+</html>

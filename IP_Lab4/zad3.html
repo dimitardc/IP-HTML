@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    label{
+        display: inline-block;
+        margin: 5px;
+    }
+    #btn{
+        width: 100px;
+        margin: 5px;
+    }
+    </style>
+    <script>
+        function myfunc(){
+            var inp = document.getElementsByName("rad");
+            for(i = 0 ; i<inp.length ; i++){
+                if(inp[i].checked)
+                    var grade = inp[i].value;
+            }
+            if(grade == "color"){
+                var val = document.getElementById("value").value;
+                document.getElementById("container").style.background = val;
+            }
+            else{
+                var val = document.getElementById("value").value;
+                document.getElementById("container").style.backgroundImage = "url(" + val + ")"; 
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="container">
+        <h1>Промена на позадина</h1>
+        <input name="rad" type="radio" value="color">Color
+        <input name="rad" type="radio" value="Image">Image
+        
+        <br><br>
+        <label for="">Value: </label>
+        <input type="text" id="value">
+        <br>
+        <br>
+        <button id="btn" onclick="myfunc()">Промени</button>
+        <br>
+    </div>
+</body>
+</html>

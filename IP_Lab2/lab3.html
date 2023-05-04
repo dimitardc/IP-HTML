@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function myFunc(){
+            document.getElementsByTagName("body")[0].style.fontFamily = "arial";
+            var p1 = prompt("Vnesi ime");
+            var p2 = prompt("Vnesi index");
+            var p3 = prompt("Vnesi grad");
+            document.getElementById("name").innerHTML = p1;
+            document.getElementById("index").innerHTML = p2;
+            document.getElementById("hometown").innerHTML = p3;
+            var elem = document.getElementsByTagName("ul");
+            for(var i = 0 ; i <elem.length ; i++){
+                elem[i].style.backgroundColor = "red";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>About me</h1>
+    <ul id>
+        <li>Name:   <span id="name"></span>
+        <li>Index:   <span id="index"></span>
+        <li>Hometown:   <span id="hometown"></span>
+    </ul>
+    <input type="button" onclick="myFunc()" value="CLick me!">
+</body>
+</html>

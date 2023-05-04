@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+    <style>
+        td{
+            height: 100px;
+            width: 100px;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            var broj;
+            for(var i=0;i<5;i++){
+                for(var j=0;j<5;j++){
+                    broj = Math.random()*100;
+                    if(broj<=50) {
+                        $("#" + i + j).css("backgroundColor", "green");
+                        $("#" + i + j).addClass("green");
+                    }
+                    else{
+                        $("#"+i+j).css("backgroundColor","blue");
+                        $("#" + i + j).addClass("blue");
+                   }
+                }
+            }
+        });
+        function smeni(current){
+            if(current.hasClass("green")){
+                current.removeClass("green");
+                current.css("backgroundColor","blue");
+                current.addClass("blue");
+            }
+            else{
+                current.removeClass("blue");
+                current.css("backgroundColor","green");
+                current.addClass("green");
+            }
+        }
+        function oboiMe(x){
+            var index = x;
+            var i = parseInt(x[0]);
+            var j = parseInt(x[1]);
+            var current,left,right,top,bottom;
+            var current = $("#"+i+j);
+            smeni(current);
+            if(i-1>=0){
+                i--;
+                current = $("#"+i+j);
+                smeni(current);
+                i++;
+               }
+            if(j+1<=4){
+                j++;
+                current = $("#"+i+j);
+                smeni(current);
+                j--;
+            }
+            if(i+1<=4){
+                i++;
+                current = $("#"+i+j);
+                smeni(current);
+                i--;
+            }
+            if(j-1>=0){
+                j--;
+                current = $("#"+i+j);
+                smeni(current);
+                j++;
+            }
+            var plavi = document.getElementsByClassName("blue");
+            var zeleni = document.getElementsByClassName("blue");
+            if(plavi.length==25 || zeleni.length==25)
+                theEnd();
+        }
+        function theEnd(){
+            var tds = document.getElementsByTagName("td");
+            for(var i = 0;i<tds.length;i++)
+            {
+                tds.item(i).style.backgroundColor = "yellow";
+                tds.item(i).style.pointerEvents = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+<table>
+    <tr>
+        <td id="00" onclick="oboiMe('00')"></td>
+        <td id="01" onclick="oboiMe('01')"></td>
+        <td id="02" onclick="oboiMe('02')"></td>
+        <td id="03" onclick="oboiMe('03')"></td>
+        <td id="04" onclick="oboiMe('04')"></td>
+    </tr>
+    <tr>
+        <td id="10" onclick="oboiMe('10')"></td>
+        <td id="11" onclick="oboiMe('11')"></td>
+        <td id="12" onclick="oboiMe('12')"></td>
+        <td id="13" onclick="oboiMe('13')"></td>
+        <td id="14" onclick="oboiMe('14')"></td>
+    </tr>
+    <tr>
+        <td id="20" onclick="oboiMe('20')"></td>
+        <td id="21" onclick="oboiMe('21')"></td>
+        <td id="22" onclick="oboiMe('22')"></td>
+        <td id="23" onclick="oboiMe('23')"></td>
+        <td id="24" onclick="oboiMe('24')"></td>
+    </tr>
+    <tr>
+        <td id="30" onclick="oboiMe('30')"></td>
+        <td id="31" onclick="oboiMe('31')"></td>
+        <td id="32" onclick="oboiMe('32')"></td>
+        <td id="33" onclick="oboiMe('33')"></td>
+        <td id="34" onclick="oboiMe('34')"></td>
+    </tr>
+    <tr>
+        <td id="40" onclick="oboiMe('40')"></td>
+        <td id="41" onclick="oboiMe('41')"></td>
+        <td id="42" onclick="oboiMe('42')"></td>
+        <td id="43" onclick="oboiMe('43')"></td>
+        <td id="44" onclick="oboiMe('44')"></td>
+    </tr>
+</table>
+<label><button onclick=location.reload(true)>New game</button></label>
+</body>

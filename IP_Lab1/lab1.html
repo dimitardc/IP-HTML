@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var broj = prompt("Vnesete broj");
+        broj = parseInt(broj);
+        var tmp = broj;
+        var count = 0;
+        while(tmp > 1){
+            console.log(tmp);
+            count++;
+            tmp/=10;
+        }
+        console.log(count);
+        if(count == 3){
+            if(parseInt(broj/100) == broj%10){
+                document.write("Brojot e palindrom");
+            }
+            else{
+                document.write("Brojot ne e palindrom");
+            }
+        }
+        else{
+            document.write("Ne e vnesen 3-cifren broj");
+        }
+    </script>
+</body>
+</html>

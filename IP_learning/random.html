@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function add(){
+            var pole = document.getElementById("pole");
+            var item = document.createElement("p");
+            var node = document.createTextNode("This is text");
+            item.appendChild(node);
+            pole.appendChild(item);
+        }
+        function remove(){
+            var pole = document.getElementById("pole");
+            pole.removeChild(pole.lastChild)
+        }
+    </script>
+</head>
+<body>
+    <input type="button" id="add" value="Add" onclick="add()">
+    <input type="button" value="Remove" id="remove" onclick="remove()">
+    <div id="pole"></div>
+    
+</body>
+</html>

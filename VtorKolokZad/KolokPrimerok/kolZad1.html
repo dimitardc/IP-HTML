@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+            var imgs = $("img");
+            for(var i =0;i<imgs.length;i++){
+                fall(imgs[i]);
+            }
+            function fall(elem){
+                var leftp = Math.random()*2200;
+                $(elem).css(
+                    {
+                        position: "absolute",
+                        top: "-200px",
+                        left: leftp,
+                        width: "150px",
+                    }
+                );
+                var speedp = (Math.random() + 0.5) * 5000;
+                $(elem).animate({top:"1000px"} , speedp , function() { fall(elem)})      //params , speed, callback
+            }
+        })
+    </script>
+</head>
+<body>
+    <img src="s1.png"/>
+    <img src="s2.png"/>
+    <img src="s3.png"/>
+    <img src="s4.png"/>
+    <img src="s5.png"/>
+    <img src="s6.png"/>
+</body>
+</html>

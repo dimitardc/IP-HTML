@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#btn").click(function(){
+                var niza = $("#colors").val();
+                var splitter = $("#delimiter").val();
+                var newNiza = niza.split(splitter);
+                $("#plotter").empty();
+                for(var i = 0; i<newNiza.length ; i++){
+                    $("#plotter").append("<div style='background-color:"+ newNiza[i] +";width: 50px;height: 50px;'onclick = remove(this) ></div>")
+                }
+            })
+        })
+        function remove(elem){
+            elem.remove()
+        }
+    </script>
+</head>
+<body>
+    <p>Colors</p>
+    <input type="text" id="colors">
+    <p>Delimiter</p>
+    <input type="text" id="delimiter">
+    <br><br>
+    <input type="button" value="Draw" id="btn">
+    <div id="plotter"></div>
+</body>
+</html>

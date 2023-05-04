@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+
+    <title>Document</title>
+    <script>
+        $(document).ready(function(){
+            $("#animate").click(function(){
+                var x  = $("#xoska").val();
+                var y = $("#yoska").val();
+                var rotation = $("#rotacija").val();
+                $("#kocka").animate({
+                    top: "-=" + y + "px",
+                    left: "+=" + x +"px"
+                })
+                $("#kocka").css("transform", "rotate(" + rotation + "deg)");
+            })
+            $("#tojson").click(function(){
+                var x  = $("#xoska").val();
+                var y = $("#yoska").val();
+                var rotation = $("#rotacija").val();
+                var niza  = {
+                    "x" : x,
+                    "y" : y,
+                    "rotation" : rotation
+                }
+                var newNiza = JSON.stringify(niza);
+                newNiza = JSON.parse(newNiza)
+                console.log(newNiza);
+            })
+        })
+    </script>
+</head>
+<body>
+    <label for="">X:</label>
+    <input type="text" name="" id="xoska"><br>
+    <label for="">Y:</label>
+    <input type="text" name="" id="yoska"> <br>
+    <label for="">Rotacija:</label>
+    <input type="text" name="" id="rotacija">
+    <br>
+    <button id="tojson">To Jason</button>
+    <br>
+    <button id="animate">Animate</button>
+    <div id="kocka" style="width: 50px;height: 50px; background-color: red; position: absolute;"></div>
+</body>
+</html>

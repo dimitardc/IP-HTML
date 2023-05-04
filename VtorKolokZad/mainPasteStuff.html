@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+    
+        function data(title,author,already){
+            this.title = title;
+            this.author = author;
+            this.alreadyRead = alreadyRead;
+        }
+
+        var size = parseInt(prompt("vnesi kolku knigi"));
+        var niza = [size]
+
+        for(var i = 0 ; i<size ; i++){
+            title = prompt("vnesi naslov");
+            author = prompt("vnesi positel");
+            alreadyRead = prompt("dali si ja protical(true/false)");
+            niza[i] = new data(title,author,alreadyRead);
+        }
+
+        for(var i = 0 ; i < size ; i++){
+            if(niza[i].alreadyRead == "true")
+                document.write("you already read " + niza[i].title +" by " +niza[i].author +"<br>")
+            else{
+                document.write("you still need to read " + niza[i].title +" by " +niza[i].author +"<br>")
+            }
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        label{
+            display: inline-block;
+            width: 100px;
+        }
+        #add{
+            width: 10%;
+        }
+        table, th, td{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+    <script>
+    function send(){
+        var author = document.getElementById("author");
+        var project = document.getElementById("project");
+        var cost = document.getElementById("cost");
+        var table = document.getElementById("table");
+
+        var row = table.insertRow();
+        var cell0 = row.insertCell();
+        var cell1 = row.insertCell();
+        var cell2 = row.insertCell();
+        cell2.setAttribute("name", "cost")
+        var cell3 = row.insertCell();
+        var cell4 = row.insertCell();
+
+        cell0.innerHTML = author.value;
+        cell1.innerHTML = project.value;
+        cell2.innerHTML = cost.value;
+        cell3.innerHTML = "<button onclick=remove(this)>Remove</button>"
+        cell4.innerHTML = "<button onclick=green(this)>Green Me Bitch</button>"
+
+        sum();
+
+    }
+
+    function remove(ref){
+        tr = ref.parentNode.parentNode.style.background = "red";
+        sum();
+    }
+
+    function sum(){
+        var cost = document.getElementsByName("cost");
+        var total = 0;
+        for(i = 0 ; i<cost.length ; i++){
+            total += parseInt(cost[i].innerHTML);
+        }
+        document.getElementById("total").innerHTML = total;
+    }
+
+    function green(ref){
+        tr = ref.parentNode.parentNode.style.background = "lightgreen";
+    }
+    
+    </script>
+</head>
+<body>
+    <h1>Project details</h1>
+    <label>Author</label>
+    <input type="text" id="author">
+    <br>
+    <label>Project</label>
+    <input type="text" id="project">
+    <br>
+    <label>Cost</label>
+    <input type="text" id="cost">
+    <br><br>
+    <button id="add" onclick="send()">Add</button>
+    <br><br>
+    <h2>Project list - Total cost: <span id="total">0</span></h2>
+    <br>
+    <table id="table">
+        <th>Authro</th>
+        <th>Project</th>
+        <th colspan="3">Cost</th>
+    </table>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kolokviumska</title>
+</head>
+<body>
+<style>
+    label{
+        display: inline-block;
+        width:100px;
+    }
+    input{
+        margin: 5px;
+    }
+    .container{
+        float: left;
+        width: 50%;
+    }
+    table{
+        border-collapse: collapse;
+    }
+    table, th, td{
+        border: 1px solid black;
+    }
+    button{
+        margin:3px;
+    }
+    .details{
+        float: right;
+        width: 50%;
+    }
+</style>
+<div class="details">
+    <h2>Revert history</h2>
+    <ul id="history">
+
+    </ul>
+</div>
+<div class="container">
+    <h2 style="display: inline-block;">Details</h2><br>
+    <label>Name</label>
+    <input type="text" id="name"><br>
+    <label>Index</label>
+    <input type="text" id="index"><br>
+    <label>Phone</label>
+    <input type="text" id="phone"><br>
+    <label>Grade</label>
+        <input type="radio" name="grade" value="5"> 5   
+        <input type="radio" name="grade" value="6">6
+        <input type="radio" name="grade" value="7">7
+        <input type="radio" name="grade" value=8>8
+        <input type="radio" name="grade" value="9">9
+        <input type="radio" name="grade" value="10">10<br>
+    <label>Session</label>
+    <select id="session">
+        <option>January</option>
+        <option>June</option>
+        <option>September</option>
+    </select>
+    <br><br>
+    <button onclick="getParams()">Import students</button>
+    <br>
+    <h2 id="average"></h2>
+    <br>
+    <table id="tabela">
+        <tr>
+            <th>Name</th>
+            <th>Index</th>
+            <th>Phone</th>
+            <th>Grade</th>
+            <th>Session</th>
+            <th>Actions</th>
+        </tr>
+    </table>
+</div>
+<script>
+    function sum() {
+        var items = document.getElementsByName('cost');
+        var sum=0;
+        var suma=0
+        for(i=0;i<items.length;i++){
+            sum+=parseFloat(items[i].innerHTML);
+        }
+        suma = sum/items.length;
+        var avg = document.getElementById('average').innerText ='Students(average grade: '+suma+')';
+    }
+    function getParams(){
+        var name = document.getElementById('name').value;
+        var index = document.getElementById('index').value;
+        var phone = document.getElementById('phone').value;
+        var ocenki = document.getElementsByName('grade');
+        for(i = 0;i<ocenki.length;i++){
+            if(ocenki[i].checked){
+                var grade = ocenki[i].value;
+            }
+        }
+        var sesija = document.getElementById('session').value;
+
+        /*if(name=='' || index=='' || phone=='' || grade=='' || sesija==''){
+            alert('Ne se popolneti site polinja');
+            return
+        }*/
+        var row = document.createElement('tr')
+        var cell1 = document.createElement('td');               //pravime element td
+        var cell2 = document.createElement('td');
+        var cell3 = document.createElement('td');
+        var cell4 = document.createElement('td');
+        cell4.setAttribute('name', 'cost')
+        var cell5 = document.createElement('td');
+        var cell6 = document.createElement('td');
+        var button = document.createElement('button');          //pravime element button
+        var text = document.createTextNode('Confirm');
+        var button2 = document.createElement('button');
+        var text2 = document.createTextNode('Remove');
+
+        button2.setAttribute('onclick', 'removeRow(this)');     //mu dodavame onclick attr na button
+        button.setAttribute('onclick', 'paintRow(this)')
+        button.appendChild(text);                               //mu dodavame textnode na button-ot (go imenuvame)
+        button2.appendChild(text2);
+        var cellText1 = document.createTextNode(name);
+        var cellText2 = document.createTextNode(index);
+        var cellText3 = document.createTextNode(phone);
+        var cellText4 = document.createTextNode(grade);
+        var cellText5 = document.createTextNode(sesija);
+
+
+        var tabela = document.getElementById('tabela');
+
+        cell1.appendChild(cellText1);
+        cell2.appendChild(cellText2);
+        cell3.appendChild(cellText3);
+        cell4.appendChild(cellText4);
+        cell5.appendChild(cellText5);
+        cell6.appendChild(button);
+        cell6.appendChild(button2);
+        row.appendChild(cell1);
+        row.appendChild(cell2);
+        row.appendChild(cell3);
+        row.appendChild(cell4);
+        row.appendChild(cell5);
+        row.appendChild(cell6);
+        tabela.appendChild(row);
+    
+        sum();
+    }
+
+    function removeRow(ref) {
+        tr = ref.parentNode.parentNode;
+        tr.parentNode.removeChild(tr);
+        var index = document.getElementById('index').value;
+        var ocenki = document.getElementsByName('grade');
+        for (i = 0; i < ocenki.length; i++) {
+            if (ocenki[i].checked) {
+                var grade = ocenki[i].value;
+            }
+        }
+            var lista = document.getElementById('history');
+            var li = document.createElement('li');
+            var text = document.createTextNode(index + ' - grade ' + grade);
+            li.appendChild(text);
+            lista.appendChild(li);
+            sum();
+    }
+
+        function paintRow(row) {
+            tr = row.parentNode;
+            tr.parentNode.style.backgroundColor = 'lightgreen';
+            row.setAttribute('disabled', 'true');
+            row.parentNode.lastElementChild.setAttribute('disabled', 'true');
+        }
+
+
+</script>
+</body>
+</html>

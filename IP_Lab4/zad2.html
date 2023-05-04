@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    label{
+        width: 100px;
+        display: inline-block;
+        margin: 5px;
+    }
+    #btn{
+        width: 100px;
+        margin: 5px;
+    }
+    </style>
+    <script>
+    function myfunc(){
+        var elems = document.getElementById("elems").value;
+        var kind = document.getElementById("type").value;
+        var container = document.getElementById("container");
+        container.innerHTML = "";           //reset
+
+        var arr = elems.split(",");
+        
+        for(var i = 0 ; i<arr.length ; i++){
+            var element = document.createElement("input");
+            element.setAttribute("type", kind);
+            var text = document.createTextNode(arr[i]);
+            container.append(element);
+            container.append(text);
+        }
+    
+    }
+    </script>
+</head>
+<body>
+    <label for="">Items</label>
+    <input type="text" id="elems">
+    <br>
+    <label for="">Type:</label>
+    <select name="" id="type">
+        <option value="checkbox">Checkbox</option>
+        <option value="radio">Radio</option>
+    </select>
+    <br>
+    <button id="btn" onclick="myfunc()">Прикажи</button>
+    <br>
+    <div id="container">
+    </div>
+</body>
+</html>

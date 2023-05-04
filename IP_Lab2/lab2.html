@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function myFunc(){
+            var x = Math.floor(Math.random() *999);
+            var img = document.getElementById("flg");
+            console.log(x);
+            if(x%3==0){
+                img.src="http://data.whicdn.com/images/15145864/large.jpg"
+            }
+            else if(x%3==1){
+                img.src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ31tjqPdrNW4UXQuQ93cYHYxAwBLubxubMlu4Zz4oQu8y1ZBn2"
+            }
+            else if(x%3==2){
+                img.src="https://farm5.staticflickr.com/4060/4567292488_5d3f4b05f6_z.jpg"
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="button" onclick="myFunc()" value="Random Button">
+    <br>
+    <img id="flg" src=""></img>
+    
+</body>
+</html>

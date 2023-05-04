@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+
+    <title>Document</title>
+    <style>
+        input{
+            margin: 2px;
+        }
+        label{
+            width: 100px;
+            display: inline-block;
+        }
+        table, td, th{
+            border: 1px solid black;
+        }
+        #details{
+            float: right;
+            width: 50%;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            $("button").click(function(){
+                var name = document.getElementById("name");
+                var lastname = document.getElementById("lastname");
+                var index = document.getElementById("index");
+                var subject = document.getElementById("subject");
+                var grades = document.getElementById("grades")
+                var table = document.getElementById("table");
+                
+                var row = table.insertRow();
+                var cell0 = row.insertCell(0);  //name
+                var cell1 = row.insertCell(1);  //lastname            
+                var cell2 = row.insertCell(2);  //index
+                var cell3 = row.insertCell(3);  //sub
+                var cell4 = row.insertCell(4);  //grades
+
+                cell0.innerHTML = name.value;
+                cell1.innerHTML = lastname.value;
+                cell2.innerHTML = index.value
+                cell3.innerHTML = subject.value;
+                cell4.innerHTML = grades.value;
+            })
+        })
+        //1)make a row for the table
+        //2)make number of needed cells in that row
+        //3)insert data into cells
+        
+    </script>
+</head>
+<body>
+    <h1>Форма за внесуванње оцени</h1>
+    <label>Име</label>
+    <input type="text" id="name">
+    <br>
+    <label>Презиме</label>
+    <input type="text" id="lastname">
+    <br>
+    <label>Индекс</label>
+    <input type="text" id="index">
+    <br>
+    <label>Предмет</label>
+    <input type="text" id="subject">
+    <br>
+    <label>Оцена</label>
+    <select id="grades">
+        <option value="5">5(пет)</option>
+        <option value="6(шест)">6(шест)</option>
+        <option value="7(седум)">7(седум)</option>
+        <option value="8(осум)">8(осум)</option>
+        <option value="9(девет)">9(девет)</option>
+        <option value="10(десет)">10(десет)</option>
+    </select>
+    <br><br>
+    <button id="import">Внеси</button>
+    <br><br>
+    <table id="table">
+        <th>Име</th>
+        <th>Презиме</th>
+        <th>Индекс</th>
+        <th>Предмет</th>
+        <th>Оцена</th>
+    </table>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+            var data =  '[{"name" : "color", "options":["red", "blue", "green", "#FF00FF"]},' + 
+                    '{"name" : "width", "options" : ["100px", "200px", "600px"]},' +
+                    '{"name" : "background-color", "options" : ["yellow", "black", "pink"]} ]';
+            data = JSON.parse(data);
+            var counter=1;
+            for(var i = 0;i<data.length;i++){
+                $("body").append("<label>" + data[i].name + "</label>")
+                $("body").append("<select class='selector"+counter+" ' name=" + data[i].name + ">")
+                for(var j = 0 ; j < data[i].options.length ; j++){
+                    $(".selector"+counter).append("<option  value=" +data[i].options[j]+">"+data[i].options[j]+"</option>")
+                }
+                counter++;
+            }
+            $("select").change(function(){
+                $("#test").css($(this).attr("name"), $(this).find(":selected").text())
+            })
+        })
+    </script>
+    <title>Document</title>
+    
+</head>
+<body>
+    <p id="test">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam, dolorum.......
+    </p>
+</body>
+</html>

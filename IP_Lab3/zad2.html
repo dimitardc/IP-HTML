@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        var golemina = prompt("vnesete golemina na niza");
+        golemina = parseInt(golemina);
+        var niza = new Array(golemina);
+        for(var i = 0 ; i<golemina ; i++){
+            var elem = prompt("vnesete element");
+            niza[i] = elem;
+        };
+        var broj = prompt("vneset broj shto sakate da go izbrihsete")
+        broj = parseInt(broj);
+        niza = myFunc(niza, broj);
+        console.log(niza);
+
+        function myFunc(niza, broj){
+            for(var i = 0 ; i< niza.length ; i++)
+                if(niza[i] == broj)
+                    niza[i] = null;
+            niza.sort();
+            return niza;
+        }
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str = prompt("vnesi string");
+        var poc = 0;
+        var end = 0
+        var max = 0;
+        var counter;
+        for(var i = 0; i<str.length ; i++){
+            counter = 0;
+            for(var j = i; j<str.length; j++){
+                if(str.charAt(j) != " " || str.charAt(j) != ","){
+                    counter++;
+                }
+                else{
+                    break;
+                }
+            }
+            if(counter > max){
+                max = counter;
+                poc = i;
+                end = j;
+            }
+        }
+    var res = str.substring(poc,end);
+    document.write(res);
+    </script>
+</body>
+</html>

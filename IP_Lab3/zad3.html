@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+    function Formula(r, h) {
+        this.r = r;
+        this.h = h;
+        this.print = function(){
+            return 3.14 * (r*r) *h;
+        }
+    };
+    var r = prompt("vnesi r");
+    r = parseInt(r);
+    var h = prompt("vnesi h");
+    h = parseInt(h);
+
+    var form = new Formula(r,h);
+    console.log(parseFloat(form.print()).toFixed(2));
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

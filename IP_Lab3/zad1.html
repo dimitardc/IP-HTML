@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        var golemina = prompt("vnesete golemina na niza");
+        golemina = parseInt(golemina);
+        var niza = new Array(golemina);
+        for(var i = 0 ; i<golemina ; i++){
+            var elem = prompt("vnesete element");
+            niza[i] = elem;
+        };
+
+        niza = myFunc(niza);
+
+        console.log(niza);
+
+        function myFunc(niza){
+            for(var i = 0; i< niza.length ; i++)
+                for(j = i+1;j<niza.length;j++)
+                    if(niza[j] == niza[i])
+                        niza[i] = null;
+            niza.sort();
+            for(var i = 0; i< niza.length ; i++)
+                if(niza[niza.length - 1] == null)
+                    niza.pop()
+            return niza;
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

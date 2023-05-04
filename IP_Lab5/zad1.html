@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <head>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+
+            <script>
+                function func(){
+                var a = parseFloat(document.getElementById("a").value);
+                var b = parseFloat(document.getElementById("b").value);
+                var inp = document.getElementsByName("oper");
+                for(i = 0 ; i<inp.length ; i++){
+                    if(inp[i].checked)
+                        var calc = inp[i];
+                }
+                if(calc.id == "plus")
+                    $("#rezultat").html(a+b);
+                else if(calc.id == "minus")
+                    document.getElementById("rezultat").innerHTML = a-b;
+                else if(calc.id == "mnoz")
+                    document.getElementById("rezultat").innerHTML = a*b;
+                else if(calc.id == "mnoz")
+                    document.getElementById("rezultat").innerHTML = a*b;
+                else if(calc.id == "del")
+                    document.getElementById("rezultat").innerHTML = a/b;
+                else if(calc.id == "sin")
+                    document.getElementById("rezultat").innerHTML = Math.sin(a);
+                else if(calc.id == "cos")
+                    document.getElementById("rezultat").innerHTML = Math.cos(a);
+                else if(calc.id == "tg")
+                    document.getElementById("rezultat").innerHTML = Math.tan(a);
+                else if(calc.id == "cel")
+                    document.getElementById("rezultat").innerHTML = Math.round(a);
+                else if(calc.id == "stepen")
+                    document.getElementById("rezultat").innerHTML = Math.pow(a,b);
+                else if(calc.id == "koren")
+                    document.getElementById("rezultat").innerHTML = Math.sqrt(a);
+                };
+            
+            </script>
+        </head>
+    <body>
+        <h1>Калкулатор</h1>
+        <div>
+        <div style="text-align:left; float:left">
+        <p>
+            а <input id="a" style="width:15px"/>
+            b <input id="b" style="width:15px"/>
+        </p>
+        <p>
+            <input id="plus" type="radio" name="oper" checked>a+b
+            <input id="minus" type="radio" name="oper">a-b
+            <input id="mnoz" type="radio" name="oper" >a*b
+            <input id="del" type="radio" name="oper" >a/b
+            <br>
+            <input id="sin" type="radio" name="oper">sin(a)
+            <input id="cos" type="radio" name="oper">cos(a)
+            <input id="tg" type="radio" name="oper">tg(a)
+            <br>
+            <input id="cel" type="radio" name="oper">[a]
+            <input id="stepen" type="radio" name="oper">a<sup>b</sup>
+            <input id="koren" type="radio" name="oper">&radic;<span style="text-decoration:overline">a</span>
+        </p>
+        <button onclick="func()">Пресметај</button>
+        <p id="rezultat" ></p>
+        </div>
+        </div>
+        <br/>
+    </body>
+</html>
